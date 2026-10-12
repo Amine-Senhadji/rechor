@@ -27,7 +27,7 @@ class MyStopIndexTest {
     void stopsMatchingWorksWithRealDataFromFileTimeTable() throws IOException {
         Path timetablePath = Path.of("timetable");
         assumeTrue(Files.exists(timetablePath.resolve("strings.txt")),
-                "Données horaires absentes : test ignoré");
+                "Timetable data not found: test skipped");
         TimeTable tt = FileTimeTable.in(timetablePath);
 
         // Récupère les noms principaux des gares
