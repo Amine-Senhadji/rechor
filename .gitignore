@@ -1,0 +1,16 @@
+# Compilation
+out/
+target/
+build/
+*.class
+
+# IDE
+.idea/
+*.iml
+
+# Données horaires (non distribuées) et fichiers de test volumineux
+/timetable/
+profile_*.txt
+
+# Système
+.DS_Store

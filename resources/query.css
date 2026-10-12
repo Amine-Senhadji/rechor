@@ -1,0 +1,13 @@
+HBox {
+    -fx-spacing: 8;
+    -fx-padding: 4;
+    -fx-alignment: baseline-left;
+}
+
+#date {
+    -fx-show-week-numbers: false;
+}
+
+#time {
+    -fx-pref-column-count: 5;
+}

@@ -1,0 +1,34 @@
+#detail {
+    -fx-fit-to-width: true;
+    -fx-fit-to-height: true;
+}
+
+#no-journey {
+    -fx-alignment: center;
+    -fx-background-color: inherit;
+}
+
+#buttons {
+    -fx-spacing: 4;
+    -fx-padding: 2;
+    -fx-alignment: baseline-center;
+}
+
+#legs {
+    -fx-hgap: 2;
+    -fx-vgap: 2;
+    -fx-padding: 10;
+}
+
+#legs Circle {
+    -fx-stroke: black;
+}
+
+.departure {
+    -fx-font-weight: bold;
+}
+
+.intermediate-stops {
+    -fx-hgap: 4;
+    -fx-vgap: 2;
+}
