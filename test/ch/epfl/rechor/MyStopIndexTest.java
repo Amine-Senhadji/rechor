@@ -5,6 +5,7 @@ import ch.epfl.rechor.timetable.mapped.FileTimeTable;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +13,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 class MyStopIndexTest {
 
@@ -24,6 +26,8 @@ class MyStopIndexTest {
     @Test
     void stopsMatchingWorksWithRealDataFromFileTimeTable() throws IOException {
         Path timetablePath = Path.of("timetable");
+        assumeTrue(Files.exists(timetablePath.resolve("strings.txt")),
+                "Données horaires absentes : test ignoré");
         TimeTable tt = FileTimeTable.in(timetablePath);
 
         // Récupère les noms principaux des gares
@@ -151,14 +155,12 @@ class MyStopIndexTest {
     }
 
     @Test
-    void stopsMatchingWithEmptyOrBlankQueryReturnsEmptyList() {
-        StopIndex index = new StopIndex(List.of("Renens", "Lausanne"), Map.of());
+    void stopsMatchingWithEmptyOrBlankQueryReturnsFirstStopsAlphabetically() {
+        StopIndex index = new StopIndex(List.of("Renens", "Lausanne", "Morges", "Bussigny"), Map.of());
 
-        var resultEmpty = index.stopsMatching("", 5);
-        var resultSpaces = index.stopsMatching("   ", 5);
-
-        assertTrue(resultEmpty.isEmpty());
-        assertTrue(resultSpaces.isEmpty());
+        assertEquals(List.of("Bussigny", "Lausanne"), index.stopsMatching("", 2));
+        assertEquals(List.of("Bussigny", "Lausanne"), index.stopsMatching("   ", 2));
+        assertEquals(List.of("Bussigny", "Lausanne", "Morges", "Renens"), index.stopsMatching("", 10));
     }
 
     @Test

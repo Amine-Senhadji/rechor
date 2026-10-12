@@ -64,7 +64,7 @@ The timetable data is **not included** in this repository. ReCHor expects it in 
 | `timetable.mapped.MyCachedTimeTableTest` | caching of the timetable by date, using fake timetables |
 | `gui.MySummaryUITest` | a small program, run by hand, that opens the journey summary view |
 
-They run without any external data, except two that need the `timetable` folder at the root of the project: the `stopsMatchingWorksWithRealDataFromFileTimeTable` test of `MyStopIndexTest`, and `MySummaryUITest`.
+The JUnit tests run without any external data. The `stopsMatchingWorksWithRealDataFromFileTimeTable` test of `MyStopIndexTest` also checks the stop search on the real timetable when a `timetable` folder is present at the root of the project, and is skipped otherwise. `MySummaryUITest` needs that folder to open its window.
 
 ## Credits
 
