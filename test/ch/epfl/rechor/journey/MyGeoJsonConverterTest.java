@@ -10,7 +10,7 @@ import java.util.List;
  * Test suite for the JourneyGeoJsonConverter class ensuring that
  * journey legs alternate as required by the Journey constructor.
  */
-public class MyGeoJsonConverter {
+public class MyGeoJsonConverterTest {
 
     /**
      * Test a simple journey with a Foot leg then a Transport leg to ensure alternation.

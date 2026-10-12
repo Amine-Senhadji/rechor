@@ -60,7 +60,7 @@ The timetable data is **not included** in this repository. ReCHor expects it in 
 |---|---|
 | `MyJsonTest` | JSON values and their text form |
 | `MyStopIndexTest` | stop search: accents, case, aliases, ranking of results, result limits |
-| `journey.MyGeoJsonConverter` | GeoJSON conversion of a journey |
+| `journey.MyGeoJsonConverterTest` | GeoJSON conversion of a journey |
 | `timetable.mapped.MyCachedTimeTableTest` | caching of the timetable by date, using fake timetables |
 | `gui.MySummaryUITest` | a small program, run by hand, that opens the journey summary view |
 
