@@ -1,5 +1,6 @@
 package ch.epfl.rechor.gui;
 
+import ch.epfl.rechor.FormatterFr;
 import ch.epfl.rechor.journey.Journey;
 import ch.epfl.rechor.journey.Vehicle;
 import javafx.application.Platform;
@@ -210,12 +211,7 @@ public record SummaryUI(Node rootNode, ObservableValue<Journey> selectedJourneyO
             getChildren().addAll(changes);
 
             Duration d = Duration.between(j.depTime(), j.arrTime());
-            long minutes = d.toMinutes();
-            if (minutes < 60) {
-                durationText.setText(minutes + " min");
-            } else {
-                durationText.setText(String.format("%dh %02d min", minutes / 60, minutes % 60));
-            }
+            durationText.setText(FormatterFr.formatDuration(d));
             durationText.getStyleClass().setAll("summary-duration");
         }
 
